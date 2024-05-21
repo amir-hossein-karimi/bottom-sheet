@@ -1,5 +1,5 @@
 {
-  "name": "@devvie/bottom-sheet",
+  "name": "@amir-hossein-karimi/bottom-sheet",
   "version": "0.3.0",
   "description": "The 😎smart , 📦tiny , and 🎗flexible bottom sheet your app craves 🚀",
   "main": "lib/commonjs/index",
@@ -30,21 +30,21 @@
     "android",
     "bottom-sheet",
     "react-native-bottom-sheet",
-    "devvie-bottom-sheet",
-    "@devvie/bottom-sheet",
+    "amir-hossein-karimi-bottom-sheet",
+    "@amir-hossein-karimi/bottom-sheet",
     "tiny-bottom-sheet",
     "flexible-bottom-sheet",
     "modal-bottom-sheet",
     "sheet",
     "ui-sheet"
   ],
-  "repository": "https://github.com/stanleyugwu/react-native-bottom-sheet",
-  "author": "Devvie <stanleyugwu2018@gmail.com> (https://github.com/stanleyugwu)",
+  "repository": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet",
+  "author": "AmirHossein Karimi <a.hosseinkarimi82@gmail.com> (https://github.com/amir-hossein-karimi)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stanleyugwu/react-native-bottom-sheet/issues"
+    "url": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet/issues"
   },
-  "homepage": "https://github.com/stanleyugwu/react-native-bottom-sheet#readme",
+  "homepage": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

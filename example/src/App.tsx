@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-// @ts-ignore ts can't find module '@devvie/bottom-sheet' on github runner because it's aliased
-import BottomSheet, { type BottomSheetMethods } from '@devvie/bottom-sheet';
+import BottomSheet from '../../src/components/bottomSheet';
 
 export default function App() {
-  const sheetRef = React.useRef<BottomSheetMethods>(null);
+  const sheetRef = React.useRef<any>(null);
 
   return (
     <View style={styles.container}>
       <Button title="Open Sheet" onPress={() => sheetRef.current?.open()} />
       <BottomSheet ref={sheetRef}>
+        <View style={{ height: 300, backgroundColor: 'red' }}></View>
         <Text style={styles.text}>
           The 😎smart, 📦tiny, and 🎗flexible bottom sheet your app craves
         </Text>

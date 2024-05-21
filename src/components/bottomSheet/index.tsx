@@ -53,7 +53,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       children: Children,
       animationType = DEFAULT_ANIMATION,
       closeOnBackdropPress = true,
-      height = DEFAULT_HEIGHT,
+      height,
       hideDragHandle = false,
       android_backdropMaskRippleColor,
       dragHandleStyle,
@@ -77,6 +77,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
     },
     ref
   ) => {
+    const contentHeight = useRef(0);
     /**
      * ref instance callable methods
      */
@@ -109,7 +110,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
     const cachedContentWrapperNativeTag = useRef<number | undefined>(undefined);
 
     // here we separate all padding that may be applied via contentContainerStyle prop,
-    // these paddings will be applied to the `View` diretly wrapping `ChildNodes` in content container.
+    // these paddings will be applied to the `View` diretly wrapping `ChildNo`des` in content container.
     // All these is so that paddings applied to sheet doesn't affect the drag handle
     // TODO: find better way to memoize `separatePaddingStyles` function return value to avoid
     // redundant re-runs
@@ -153,7 +154,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
         },
         animateHeight(toValue: ToValue, duration: number) {
           return Animated.timing(_animatedHeight, {
-            toValue,
+            toValue: +toValue <= 0 ? toValue : +toValue + 3 * 16,
             useNativeDriver: false,
             duration: duration,
             easing:
@@ -193,7 +194,11 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
      * or `height` changes
      */
     const convertedHeight = useMemo(() => {
-      const newHeight = convertHeight(height, containerHeight, hideDragHandle);
+      const newHeight = convertHeight(
+        height || contentHeight.current,
+        containerHeight,
+        hideDragHandle
+      );
 
       // FIXME: we use interface-undefined but existing property `_value` here and it's risky
       // @ts-expect-error
@@ -211,6 +216,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
     }, [
       containerHeight,
       height,
+      contentHeight,
       animationType,
       sheetOpen,
       Animators,
@@ -306,9 +312,9 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
      */
     let extractNativeTag = useCallback(
       // @ts-expect-error
-      ({ target: { _nativeTag: tag = undefined } }: LayoutChangeEvent) => {
+      (event) => {
         if (!cachedContentWrapperNativeTag.current)
-          cachedContentWrapperNativeTag.current = tag;
+          cachedContentWrapperNativeTag.current = event?.target._nativeTag;
       },
       []
     );
@@ -426,6 +432,15 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       _animatedContainerHeight,
     ]);
 
+    const translateAnim = useRef(new Animated.Value(-SCREEN_HEIGHT)).current;
+    useEffect(() => {
+      Animated.timing(translateAnim, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: true,
+      });
+    }, [contentHeight]);
+
     /**
      * Handles hardware back button press for android
      */
@@ -490,8 +505,9 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               // we apply styles other than padding here
               sepStyles?.otherStyles,
               {
-                height: _animatedHeight,
-                minHeight: _animatedHeight,
+                // display: calculating ? 'none' : 'flex',
+                height: contentHeight?.current ? _animatedHeight : 'auto',
+                minHeight: contentHeight?.current ? _animatedHeight : 'auto',
                 opacity: interpolatedOpacity,
               },
             ]}
@@ -502,6 +518,11 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
             <View
               // we apply padding styles here to not affect drag handle above
               style={sepStyles?.paddingStyles}
+              onLayout={(e) => {
+                if (!contentHeight.current) {
+                  contentHeight.current = e.nativeEvent.layout.height;
+                }
+              }}
             >
               {ChildNodes}
             </View>

@@ -501,7 +501,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
             /* Merge external and internal styles carefully and orderly */
             style={[
               !modal ? materialStyles.contentContainerShadow : false,
-              materialStyles.contentContainer,
+              materialStyles.contentContainer(radiusSize),
               // we apply styles other than padding here
               sepStyles?.otherStyles,
               {
@@ -538,13 +538,13 @@ BottomSheet.displayName = 'BottomSheet';
 BottomSheet.ANIMATIONS = ANIMATIONS;
 
 const materialStyles = StyleSheet.create({
-  contentContainer: {
+  contentContainer: (radiusSize) => ({
     backgroundColor: '#F7F2FA',
     width: '100%',
     overflow: 'hidden',
     borderTopLeftRadius: radiusSize,
     borderTopRightRadius: radiusSize,
-  },
+  }),
   contentContainerShadow:
     Platform.OS === 'android'
       ? {

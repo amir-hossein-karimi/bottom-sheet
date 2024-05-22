@@ -1,6 +1,6 @@
 {
   "name": "@amir-hossein-karimi/bottom-sheet",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "The 😎smart , 📦tiny , and 🎗flexible bottom sheet your app craves 🚀",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

@@ -76,6 +76,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       onAnimate,
       disableKeyboardHandling = false,
       radiusSize = 16,
+      contentStyle = {},
     },
     ref
   ) => {
@@ -518,7 +519,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
             {/* @ts-ignore */}
             <View
               // we apply padding styles here to not affect drag handle above
-              style={sepStyles?.paddingStyles}
+              style={[sepStyles?.paddingStyles, contentStyle]}
               onLayout={(e) => {
                 if (!contentHeight.current) {
                   contentHeight.current = e.nativeEvent.layout.height;

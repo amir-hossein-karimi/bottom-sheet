@@ -77,7 +77,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
     },
     ref
   ) => {
-    const contentHeight = useRef(0);
+    const contentHeight = useRef(height || 0);
     /**
      * ref instance callable methods
      */
@@ -195,7 +195,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
      */
     const convertedHeight = useMemo(() => {
       const newHeight = convertHeight(
-        height || contentHeight.current,
+        contentHeight.current,
         containerHeight,
         hideDragHandle
       );
@@ -215,7 +215,6 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       return newHeight;
     }, [
       containerHeight,
-      height,
       contentHeight,
       animationType,
       sheetOpen,

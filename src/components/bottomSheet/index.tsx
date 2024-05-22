@@ -75,6 +75,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       onOpen,
       onAnimate,
       disableKeyboardHandling = false,
+      radiusSize = 16,
     },
     ref
   ) => {
@@ -541,8 +542,8 @@ const materialStyles = StyleSheet.create({
     backgroundColor: '#F7F2FA',
     width: '100%',
     overflow: 'hidden',
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
+    borderTopLeftRadius: radiusSize,
+    borderTopRightRadius: radiusSize,
   },
   contentContainerShadow:
     Platform.OS === 'android'

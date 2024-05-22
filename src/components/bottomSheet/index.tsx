@@ -201,7 +201,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       );
 
       // FIXME: we use interface-undefined but existing property `_value` here and it's risky
-      // @ts-expect-error
+      // @ts-ignore
       const curHeight = _animatedHeight._value;
       if (sheetOpen && newHeight !== curHeight) {
         if (animationType === ANIMATIONS.FADE)
@@ -257,7 +257,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
           return view === 'handlebar'
             ? true
             : cachedContentWrapperNativeTag.current ===
-                // @ts-expect-error
+                // @ts-ignore
                 evt?.target?._nativeTag;
         },
         onPanResponderMove: (_, gestureState) => {
@@ -310,7 +310,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
      * Extracts and caches the _nativeTag property of ContentWrapper
      */
     let extractNativeTag = useCallback(
-      // @ts-expect-error
+      // @ts-ignore
       (event) => {
         if (!cachedContentWrapperNativeTag.current)
           cachedContentWrapperNativeTag.current = event?.target._nativeTag;

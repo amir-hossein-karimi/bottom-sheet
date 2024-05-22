@@ -31,7 +31,7 @@ const AnimatedTouchableBackdropMask = ({
       {...otherProps}
     />
   ) : (
-    // @ts-expect-error
+    // @ts-ignore
     <Animated.View
       style={[style, styles.sharedBackdropStyle]}
       {...otherProps}

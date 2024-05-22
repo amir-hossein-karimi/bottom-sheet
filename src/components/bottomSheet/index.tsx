@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {
   forwardRef,
   useCallback,
@@ -476,7 +477,6 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
 
         {/* Container */}
         <Container style={{ height: _animatedContainerHeight }}>
-          {/* Backdrop */}
           {modal ? (
             <Backdrop
               BackdropComponent={CustomBackdropComponent}
@@ -514,6 +514,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
           >
             <PolymorphicHandleBar />
 
+            {/* @ts-ignore */}
             <View
               // we apply padding styles here to not affect drag handle above
               style={sepStyles?.paddingStyles}

@@ -43,8 +43,6 @@ import {
 import useHandleAndroidBackButtonClose from '../../hooks/useHandleAndroidBackButtonClose';
 import separatePaddingStyles from '../../utils/separatePaddingStyles';
 
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
 /**
  * Main bottom sheet component
  */

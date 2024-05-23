@@ -105,7 +105,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
     const _animatedContainerHeight = useAnimatedValue(0);
     const _animatedBackdropMaskOpacity = useAnimatedValue(0);
     const _animatedHeight = useAnimatedValue(0);
-    const translateAnim = useAnimatedValue(SCREEN_HEIGHT);
+    const translateAnim = useAnimatedValue(height ? 0 : SCREEN_HEIGHT);
 
     const contentWrapperRef = useRef<View>(null);
 
@@ -156,6 +156,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
           });
         },
         animateHeight(toValue: ToValue, duration: number) {
+          console.log({ _animatedHeight, toValue });
           return Animated.timing(_animatedHeight, {
             toValue,
             useNativeDriver: false,

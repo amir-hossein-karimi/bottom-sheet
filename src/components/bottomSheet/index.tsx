@@ -157,7 +157,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
         },
         animateHeight(toValue: ToValue, duration: number) {
           return Animated.timing(_animatedHeight, {
-            toValue: +toValue <= 0 ? toValue : +toValue + 3 * 16,
+            toValue,
             useNativeDriver: false,
             duration: duration,
             easing:

@@ -23,7 +23,6 @@ import {
   DEFAULT_ANIMATION,
   DEFAULT_BACKDROP_MASK_COLOR,
   DEFAULT_CLOSE_ANIMATION_DURATION,
-  DEFAULT_HEIGHT,
   DEFAULT_OPEN_ANIMATION_DURATION,
 } from '../../constant';
 import DefaultHandleBar from '../defaultHandleBar';
@@ -157,7 +156,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
         },
         animateHeight(toValue: ToValue, duration: number) {
           return Animated.timing(_animatedHeight, {
-            toValue: +toValue <= 0 ? toValue : +toValue + 3 * 16,
+            toValue,
             useNativeDriver: false,
             duration: duration,
             easing:
@@ -441,7 +440,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
         duration: 300,
         useNativeDriver: true,
       });
-    }, [contentHeight]);
+    }, [contentHeight, translateAnim]);
 
     /**
      * Handles hardware back button press for android

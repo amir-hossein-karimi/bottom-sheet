@@ -433,14 +433,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       _animatedContainerHeight,
     ]);
 
-    const translateAnim = useRef(new Animated.Value(-SCREEN_HEIGHT)).current;
-    useEffect(() => {
-      Animated.timing(translateAnim, {
-        toValue: 0,
-        duration: 300,
-        useNativeDriver: true,
-      });
-    }, [contentHeight, translateAnim]);
+    const translateAnim = useAnimatedValue(SCREEN_HEIGHT);
 
     /**
      * Handles hardware back button press for android
@@ -505,10 +498,10 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               // we apply styles other than padding here
               sepStyles?.otherStyles,
               {
-                // display: calculating ? 'none' : 'flex',
                 height: contentHeight?.current ? _animatedHeight : 'auto',
                 minHeight: contentHeight?.current ? _animatedHeight : 'auto',
                 opacity: interpolatedOpacity,
+                transform: [{ translateY: translateAnim }],
               },
             ]}
             {...panHandlersFor('contentwrapper')}
@@ -520,8 +513,17 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               // we apply padding styles here to not affect drag handle above
               style={[sepStyles?.paddingStyles, contentStyle]}
               onLayout={(e) => {
-                if (!contentHeight.current) {
-                  contentHeight.current = e.nativeEvent.layout.height;
+                if (!contentHeight.current && e.nativeEvent.layout.height) {
+                  contentHeight.current = height || e.nativeEvent.layout.height;
+
+                  Animated.timing(translateAnim, {
+                    toValue: 0,
+                    duration: 500,
+                    useNativeDriver: false,
+                    easing: (value: number) => {
+                      return value === 1 ? 1 : 1 - Math.pow(2, -10 * value);
+                    },
+                  }).start();
                 }
               }}
             >

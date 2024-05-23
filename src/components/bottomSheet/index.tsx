@@ -43,6 +43,8 @@ import {
 import useHandleAndroidBackButtonClose from '../../hooks/useHandleAndroidBackButtonClose';
 import separatePaddingStyles from '../../utils/separatePaddingStyles';
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 /**
  * Main bottom sheet component
  */
@@ -105,6 +107,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
     const _animatedContainerHeight = useAnimatedValue(0);
     const _animatedBackdropMaskOpacity = useAnimatedValue(0);
     const _animatedHeight = useAnimatedValue(0);
+    const translateAnim = useAnimatedValue(SCREEN_HEIGHT);
 
     const contentWrapperRef = useRef<View>(null);
 
@@ -433,8 +436,6 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       _animatedContainerHeight,
     ]);
 
-    const translateAnim = useAnimatedValue(SCREEN_HEIGHT);
-
     /**
      * Handles hardware back button press for android
      */
@@ -515,6 +516,9 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               onLayout={(e) => {
                 if (!contentHeight.current && e.nativeEvent.layout.height) {
                   contentHeight.current = height || e.nativeEvent.layout.height;
+                  _animatedHeight.setValue(
+                    height || e.nativeEvent.layout.height
+                  );
 
                   Animated.timing(translateAnim, {
                     toValue: 0,

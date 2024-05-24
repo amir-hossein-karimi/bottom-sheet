@@ -38,13 +38,13 @@
     "sheet",
     "ui-sheet"
   ],
-  "repository": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet-m",
+  "repository": "https://github.com/amir-hossein-karimi/bottom-sheet",
   "author": "AmirHossein Karimi <a.hosseinkarimi82@gmail.com> (https://github.com/amir-hossein-karimi)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet-m/issues"
+    "url": "https://github.com/amir-hossein-karimi/bottom-sheet/issues"
   },
-  "homepage": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet-m#readme",
+  "homepage": "https://github.com/amir-hossein-karimi/bottom-sheet#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

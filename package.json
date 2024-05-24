@@ -1,7 +1,7 @@
 {
   "name": "@amir-hossein-karimi/bottom-sheet",
-  "version": "7.1.1",
-  "description": "The 😎smart , 📦tiny , and 🎗flexible bottom sheet your app craves 🚀",
+  "version": "7.1.2",
+  "description": "small react native bottom sheet",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",

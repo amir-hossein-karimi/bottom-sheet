@@ -1,19 +1,7 @@
-# React Native Bottom Sheet 💖
+# React Native Bottom Sheet 
 
-![GitHub](https://img.shields.io/github/license/stanleyugwu/react-native-bottom-sheet?style=plastic&label=License&color=%23fea9f8)
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/stanleyugwu/react-native-bottom-sheet/ci.yml?color=%23fea9f8&label=Build)
-[![runs with expo](https://img.shields.io/badge/Expo-Support-fea9f8.svg?style=platic&logo=EXPO&logoColor=fff)](https://expo.io/)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/stanleyugwu/react-native-bottom-sheet?color=%23fea9f8&label=Code%20Size)
-![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@devvie/bottom-sheet?style=plastic&logo=npm&color=%23fea9f8&label=Bundle%20Size)
-![npm downloads](https://img.shields.io/npm/dm/@devvie/bottom-sheet?style=plastic&logo=npm&color=%23fea9f8&label=Downloads)
+Small react native bottom sheet
 
-The smart 😎, tiny 📦, and flexible 🎗 bottom sheet your app craves 🚀
-
----
-👉🏾
-<a href="https://www.buymeacoffee.com/devvie"><img style="height: 50px !important;align:center;width: 217px !important" src="https://img.buymeacoffee.com/button-api/?text=Buy me Okpa&emoji=🍘&slug=devvie&button_colour=Fea9f8&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
-👈🏾
----
 
 ![Preview for Android & iOS](https://i.ibb.co/Y38XsMr/Combined.gif)
 
@@ -39,17 +27,18 @@ The smart 😎, tiny 📦, and flexible 🎗 bottom sheet your app craves 🚀
 - 🎨 Follows Material Design principles
 - 🌐 Runs on the web
 - ✅ Written in TypeScript
+- 🎄 Dynamic bottom sheet height
 
 ## 💻 Installation
 
 ```sh
-npm install @devvie/bottom-sheet
+npm install @amir-hossein-karimi/bottom-sheet
 ```
 
 or
 
 ```sh
-yarn add @devvie/bottom-sheet
+yarn add @amir-hossein-karimi/bottom-sheet
 ```
 
 ## 📱 Minimal Usage
@@ -62,7 +51,7 @@ Opening and closing the bottom sheet is done imperatively, so just pass a `ref` 
 
 ```tsx
 import React, { useRef } from 'react';
-import BottomSheet, { BottomSheetMethods } from '@devvie/bottom-sheet';
+import BottomSheet, { BottomSheetMethods } from '@amir-hossein-karimi/bottom-sheet';
 import { Button, View } from 'react-native';
 
 const App = () => {
@@ -86,7 +75,7 @@ export default App;
 
 ```tsx
 import React, { useRef } from 'react';
-import BottomSheet, { BottomSheetMethods } from '@devvie/bottom-sheet';
+import BottomSheet, { BottomSheetMethods } from '@amir-hossein-karimi/bottom-sheet';
 import { Button, View } from 'react-native';
 
 const App = () => {
@@ -218,4 +207,4 @@ see [LICENSE](LICENSE.md)
 
 <a href="https://www.buymeacoffee.com/devvie" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
-</> with 💖 by [Devvie](https://twitter.com/stanleyugwu_) ✌
+</> with 💖 by [Devvie](https://twitter.com/amir-hossein-karimi_) ✌

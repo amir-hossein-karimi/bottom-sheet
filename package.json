@@ -1,6 +1,6 @@
 {
   "name": "@amir-hossein-karimi/bottom-sheet",
-  "version": "7.1.2",
+  "version": "7.1.3",
   "description": "small react native bottom sheet",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -38,13 +38,13 @@
     "sheet",
     "ui-sheet"
   ],
-  "repository": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet",
+  "repository": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet-m",
   "author": "AmirHossein Karimi <a.hosseinkarimi82@gmail.com> (https://github.com/amir-hossein-karimi)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet/issues"
+    "url": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet-m/issues"
   },
-  "homepage": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet#readme",
+  "homepage": "https://github.com/amir-hossein-karimi/react-native-bottom-sheet-m#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"

@@ -2,6 +2,12 @@
 
 Small react native bottom sheet
 
+---
+👉🏾
+<a href="https://www.buymeacoffee.com/devvie"><img style="height: 50px !important;align:center;width: 217px !important" src="https://img.buymeacoffee.com/button-api/?text=Buy me Okpa&emoji=🍘&slug=devvie&button_colour=Fea9f8&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+👈🏾
+---
+
 
 ![Preview for Android & iOS](https://i.ibb.co/Y38XsMr/Combined.gif)
 

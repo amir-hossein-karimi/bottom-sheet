@@ -529,7 +529,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
                   }).start();
                 };
 
-                BottomSheet.heightCalculation = heightCalc;
+                BottomSheet.recalculateHeight = heightCalc;
                 if (!contentHeight.current && layoutHeight) {
                   heightCalc();
 

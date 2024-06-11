@@ -44,6 +44,8 @@ interface BottomSheetProps {
    */
   height?: number | string;
 
+  reCalculateTime?: number;
+
   /**
    * Extra styles to apply to bottom sheet (the `View` that wraps its children).
    *

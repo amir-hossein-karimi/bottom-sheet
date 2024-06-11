@@ -76,6 +76,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       disableKeyboardHandling = false,
       radiusSize = 16,
       contentStyle = {},
+      reCalculateTime = 1_000,
     },
     ref
   ) => {
@@ -512,11 +513,11 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               // we apply padding styles here to not affect drag handle above
               style={[sepStyles?.paddingStyles, contentStyle]}
               onLayout={(e) => {
-                if (!contentHeight.current && e.nativeEvent.layout.height) {
-                  contentHeight.current = height || e.nativeEvent.layout.height;
-                  _animatedHeight.setValue(
-                    height || e.nativeEvent.layout.height
-                  );
+                const layoutHeight = e.nativeEvent.layout.height;
+                const heightCalc = () => {
+                  console.log('event ====>', e);
+                  contentHeight.current = height || layoutHeight;
+                  _animatedHeight.setValue(height || layoutHeight);
 
                   Animated.timing(translateAnim, {
                     toValue: 0,
@@ -526,6 +527,13 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
                       return value === 1 ? 1 : 1 - Math.pow(2, -10 * value);
                     },
                   }).start();
+                };
+
+                BottomSheet.heightCalculation = heightCalc;
+                if (!contentHeight.current && layoutHeight) {
+                  heightCalc();
+
+                  setTimeout(heightCalc, reCalculateTime);
                 }
               }}
             >

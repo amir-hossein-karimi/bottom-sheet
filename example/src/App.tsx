@@ -19,6 +19,9 @@ export default function App() {
           <Text style={styles.text}>
             The 😎smart, 📦tiny, and 🎗flexible bottom sheet your app craves
           </Text>
+
+          {/* @ts-ignore */}
+          <Button title="re height" onPress={BottomSheet.heightCalculation} />
         </BottomSheet>
       </View>
     </>

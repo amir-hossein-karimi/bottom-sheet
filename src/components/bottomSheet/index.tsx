@@ -528,11 +528,11 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
                   }).start();
                 };
 
-                // BottomSheet.recalculateHeight = heightCalc;
+                BottomSheet.recalculateHeight = heightCalc;
                 if (!contentHeight.current && layoutHeight) {
                   heightCalc();
 
-                  // setTimeout(heightCalc, reCalculateTime);
+                  setTimeout(heightCalc, reCalculateTime);
                 }
               }}
             >

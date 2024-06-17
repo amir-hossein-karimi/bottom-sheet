@@ -515,7 +515,6 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               onLayout={(e) => {
                 const layoutHeight = e.nativeEvent.layout.height;
                 const heightCalc = () => {
-                  console.log('event ====>', e);
                   contentHeight.current = height || layoutHeight;
                   _animatedHeight.setValue(height || layoutHeight);
 
@@ -529,11 +528,11 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
                   }).start();
                 };
 
-                BottomSheet.recalculateHeight = heightCalc;
+                // BottomSheet.recalculateHeight = heightCalc;
                 if (!contentHeight.current && layoutHeight) {
                   heightCalc();
 
-                  setTimeout(heightCalc, reCalculateTime);
+                  // setTimeout(heightCalc, reCalculateTime);
                 }
               }}
             >

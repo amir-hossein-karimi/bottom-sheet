@@ -89,6 +89,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
         openBottomSheet();
       },
       close() {
+        contentHeight.current = 0;
         closeBottomSheet();
       },
     }));
@@ -559,7 +560,7 @@ BottomSheet.ANIMATIONS = ANIMATIONS;
 
 const materialStyles = StyleSheet.create({
   contentContainer: (radiusSize) => ({
-    backgroundColor: '#F7F2FA',
+    backgroundColor: '#ffffff',
     width: '100%',
     overflow: 'hidden',
     borderTopLeftRadius: radiusSize,

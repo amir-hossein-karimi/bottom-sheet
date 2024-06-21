@@ -356,7 +356,6 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
           if (animationType === ANIMATIONS.FADE) {
             Animators.animateContainerHeight(0).start();
             _animatedHeight.setValue(0);
-            contentHeight.current = 0;
           } else {
             Animators.animateHeight(0, closeDuration).start();
             Animators.animateContainerHeight(0).start();

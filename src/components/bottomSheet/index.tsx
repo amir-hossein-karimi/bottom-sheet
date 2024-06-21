@@ -355,6 +355,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
           if (animationType === ANIMATIONS.FADE) {
             Animators.animateContainerHeight(0).start();
             _animatedHeight.setValue(0);
+            contentHeight.current = 0;
           } else {
             Animators.animateHeight(0, closeDuration).start();
             Animators.animateContainerHeight(0).start();
@@ -498,8 +499,16 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               // we apply styles other than padding here
               sepStyles?.otherStyles,
               {
-                height: contentHeight?.current ? _animatedHeight : 'auto',
-                minHeight: contentHeight?.current ? _animatedHeight : 'auto',
+                height: contentHeight?.current
+                  ? _animatedHeight
+                  : height
+                  ? height
+                  : 'auto',
+                minHeight: contentHeight?.current
+                  ? _animatedHeight
+                  : height
+                  ? height
+                  : 'auto',
                 opacity: interpolatedOpacity,
                 transform: [{ translateY: translateAnim }],
               },

@@ -541,7 +541,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
                 if (!contentHeight.current && layoutHeight) {
                   heightCalc();
 
-                  setTimeout(heightCalc, reCalculateTime);
+                  // setTimeout(heightCalc, reCalculateTime);
                 }
               }}
             >

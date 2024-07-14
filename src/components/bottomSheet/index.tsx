@@ -76,7 +76,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
       disableKeyboardHandling = false,
       radiusSize = 16,
       contentStyle = {},
-      reCalculateTime = 1_000,
+      // reCalculateTime = 1_000,
     },
     ref
   ) => {
@@ -498,17 +498,22 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               materialStyles.contentContainer(radiusSize),
               // we apply styles other than padding here
               sepStyles?.otherStyles,
+
               {
                 height: contentHeight?.current
                   ? _animatedHeight
                   : height
                   ? height
-                  : 'auto',
+                  : sheetOpen
+                  ? 'auto'
+                  : 0,
                 minHeight: contentHeight?.current
                   ? _animatedHeight
                   : height
                   ? height
-                  : 'auto',
+                  : sheetOpen
+                  ? 'auto'
+                  : 0,
                 opacity: interpolatedOpacity,
                 transform: [{ translateY: translateAnim }],
               },

@@ -499,6 +499,7 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
               // we apply styles other than padding here
               sepStyles?.otherStyles,
 
+              // eslint-disable-next-line react-native/no-inline-styles
               {
                 height: contentHeight?.current
                   ? _animatedHeight
@@ -516,6 +517,10 @@ const BottomSheet = forwardRef<BottomSheetMethods, BottomSheetProps>(
                   : 0,
                 opacity: interpolatedOpacity,
                 transform: [{ translateY: translateAnim }],
+                display:
+                  contentHeight?.current || height || sheetOpen
+                    ? 'flex'
+                    : 'none',
               },
             ]}
             {...panHandlersFor('contentwrapper')}

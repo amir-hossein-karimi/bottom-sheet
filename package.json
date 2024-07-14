@@ -1,6 +1,6 @@
 {
   "name": "@amir-hossein-karimi/bottom-sheet",
-  "version": "9.1.1",
+  "version": "9.1.2",
   "description": "small react native bottom sheet",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
